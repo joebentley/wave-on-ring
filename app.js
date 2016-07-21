@@ -35,15 +35,16 @@ render();
 
 // Create a new set of `n` points that the curve will pass through
 function getCurve(n, freq, phase) {
-	var res = [];
-    var interval = 2 * Math.PI / n;
-    var angle = 0;
-    var radius = 25;
-    var magnitude = 5;
+	var res = [],
+		interval = 2 * Math.PI / n,
+    	angle = 0,
+    	radius = 25,
+    	wave_magnitude = 5,
+		offset = Math.PI / 4;
 
 	for (var i = 0; i < n; i++) {
-    	y = magnitude * Math.sin(angle * freq + phase);
-    	res[i] = new THREE.Vector3(radius * Math.cos(angle), y, radius * Math.sin(angle));
+    	y = wave_magnitude * Math.sin(angle * freq + phase);
+    	res[i] = new THREE.Vector3(radius * Math.cos(angle + offset), y, radius * Math.sin(angle + offset));
 	    angle += interval;
     }
 
