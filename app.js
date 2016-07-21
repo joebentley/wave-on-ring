@@ -1,11 +1,13 @@
+var canvas = $('#viewport')[0];
+
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
 
 // Create the renderer
-var renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+var renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
+renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 renderer.setClearColor(0xffffff, 1);
-document.body.appendChild(renderer.domElement);
+//document.body.appendChild(renderer.domElement);
 
 // Generate and add the curve
 var geometry = newCurveGeometry(1);
@@ -36,7 +38,7 @@ function getCurve(n, freq, phase) {
 	var res = [];
     var interval = 2 * Math.PI / n;
     var angle = 0;
-    var radius = 20;
+    var radius = 25;
     var magnitude = 5;
 
 	for (var i = 0; i < n; i++) {
@@ -61,7 +63,7 @@ function newCurveGeometry(freq, phase) {
 
 // Generate Array of Object3Ds that represent the coordinate axes
 function createCartesianAxes() {
-	var l = 10;
+	var l = 15;
 	var axes = [];
     for (var i = 0; i < 3; ++i) {
     	var geometry = new THREE.Geometry();
