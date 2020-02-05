@@ -2,4 +2,4 @@
 
 ![Demo image](demo.png)
 
-[Demo](https://rawgit.com/joebentley/wave-on-ring/master/index.html)
+[View on GitHub Pages](http://www.joebentleyphysics.com/wave-on-ring/) :sushi:
